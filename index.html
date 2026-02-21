@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Squint: Fast Visual Reinforcement Learning for Sim-to-Real Robotics">
+  <meta name="keywords" content="Squint, Squint RL, Image Reinforcement Learning, Reinforcment Learning, Visual Reinforcement Learning, 
+                                 RL, Fast Reinforcement Learning, Fast Visual Reinforcement Learning, Robotic Manipulation, Robot Learning,
+                                 SO-101, SO-100, Robot Arm, LeRobot, Sim-to-real, sim2real, simulation, real world robot, 
+                                 SAC, PPO, Wall-time RL, ManiSkill3, Pytorch">
+
+  <title>Squint: Fast Visual Reinforcement Learning for Sim-to-Real Robotics</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <link rel="icon" href="./static/images/squint_icon.svg">
+  
+  <script src="./static/js/index.js"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title"><span class="squint-text">Squint</span>: Fast Visual Reinforcement Learning for Sim-to-Real Robotics</h1>
+
+          <!-- <div class="is-size-5 publication-venue">
+            <a href="???">Under Review</a>
+          </div> -->
+          
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://aalmuzairee.github.io">Abdulaziz Almuzairee</a>
+            </span>
+            <span class="author-separator">&middot;</span>
+            <span class="author-block">
+              <a href="https://hichristensen.com">Henrik I. Christensen</a>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">UC San Diego</span>
+          </div>
+
+
+
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="???"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="???"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/aalmuzairee/squint"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+              <!-- Home Link. -->
+              <span class="link-block">
+                <a href="https://aalmuzairee.github.io"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-home"></i>
+                  </span>
+                  <span>Home</span>
+                </a>
+              </span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Head Video -->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body" style="padding-bottom: 0px;">
+      <video src="./static/videos/header.mp4" style="border-radius: 1em;" autoplay muted loop playsinline></video>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- Abstract -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Visual reinforcement learning is appealing for
+            robotics but expensive -- off-policy methods are sample-efficient
+            yet slow; on-policy methods parallelize well but waste samples.
+            Recent work has shown that off-policy methods can train
+            faster than on-policy methods in wall-clock time for state-based
+            control. Extending this to vision remains challenging, where
+            high-dimensional input images complicate training dynamics and
+            introduce substantial storage and encoding overhead. To address
+            these challenges, we introduce <strong>Squint</strong>, a visual 
+            Soft Actor Critic method that achieves faster wall-clock training 
+            than prior visual off-policy and on-policy methods. Squint achieves 
+            this via parallel simulation, a distributional critic, resolution 
+            squinting, layer normalization, a tuned update-to-data ratio, 
+            and an optimized implementation. We evaluate on the SO-101 Task Set, 
+            a new suite of eight manipulation tasks in ManiSkill3 with heavy domain
+            randomization, and demonstrate sim-to-real transfer to a real
+            SO-101 robot. We train policies for 15 minutes on a single RTX
+            3090 GPU, with most tasks converging in under 6 minutes.
+
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Setup Section -->
+<section class="section hero is-light is-small">
+  <div class="container has-text-centered is-max-desktop" style="width: 100%;">
+    <h2 class="title is-3">Setup</h2>
+        <div class="has-text-justified">
+          <img src="./static/images/squint_setup.png">
+          <strong>(Left)</strong> We use a single wrist camera, our real world setup is displayed on the left.
+          <strong>(Middle)</strong> The robot policy input in the real world and simulation is shown in the middle.
+          <strong>(Right)</strong> On the right, we show the visual difference between downsampling from a higher resolution, vs rendering at the low resolution directly. We refer to downsampling from a higher resolution as <em>squinting</em>.
+        </div>
+      </div>
+  </div>
+</section>
+
+
+
+<!-- Method -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column">
+        <h2 class="title is-3">Method</h2>
+        <div style="padding-top: 2%; padding-bottom: 2%;">
+          <img width="100%" src="./static/images/squint_method.png">
+          <div class="has-text-justified" style="padding-top: 3%;">
+            <strong>Method Diagram.</strong> Squint is a fast off-policy actor-critic visual 
+            reinforcement learning algorithm that accelerates training speed by leveraging parallel environments and downsampling input image observations.
+          </div>
+        </div>
+        <div style="padding-top: 2%; padding-bottom: 2%;">
+          <img width="100%" src="./static/images/squint_design_choices.png">
+          <div class="has-text-justified" style="padding-top: 3%;">
+            <strong>Design Choices.</strong> We experiment with the most critical design choices that allow our agents to be trained while maximizing wall-time for sim-to-real robotics deployment. Mean Success Rate and 95% CI over 5 seeds for all SO-101 tasks.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<!-- Visuals -->
+<section class="section hero is-light is-small">
+  <div class="container has-text-centered is-max-desktop">
+    <h2 class="title is-3">Visuals</h2>
+    <div class="comparison-container">
+      <!-- Top-level tab (static label) -->
+      <div class="tab-header" id="env-tabs">
+        <button class="tab active">SO-101 Task Set</button>
+      </div>
+
+      <!-- Task-level tabs (two rows of 4) -->
+      <div class="tab-header task-tabs-grid" id="task-tabs">
+        <button class="tab" onclick="switchTask(0)">Reach Cube</button>
+        <button class="tab" onclick="switchTask(1)">Reach Can</button>
+        <button class="tab" onclick="switchTask(2)">Lift Cube</button>
+        <button class="tab" onclick="switchTask(3)">Lift Can</button>
+        <button class="tab" onclick="switchTask(4)">Place Cube</button>
+        <button class="tab" onclick="switchTask(5)">Place Can</button>
+        <button class="tab" onclick="switchTask(6)">Stack Cube</button>
+        <button class="tab active" onclick="switchTask(7)">Stack Can</button>
+      </div>
+
+      <div class="tab-content" id="task-content">
+        <div class="video-pair">
+          <div class="video-pair-item">
+            <div class="video-card">
+              <button class="tab active video-label">Simulation</button>
+              <div class="video-container">
+                <span class="video-overlay-label left">Robot Input</span>
+                <span class="video-overlay-label right">External Camera</span>
+                <video id="sim-video" src="./static/videos/sim/stack_can.mp4" autoplay muted loop playsinline></video>
+              </div>
+            </div>
+          </div>
+          <div class="video-pair-item">
+            <div class="video-card">
+              <button class="tab active video-label">Real World</button>
+              <div class="video-container">
+                <span class="video-overlay-label left">Robot Input</span>
+                <span class="video-overlay-label right">External Camera</span>
+                <video id="real-video" src="./static/videos/real/stack_can.mp4" autoplay muted loop playsinline></video>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+  </div>
+</section>
+
+
+
+<!-- Results -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column">
+        <h2 class="title is-3">Results</h2>
+        <div class="has-text-justified">
+          On the SO-101 task set, consisting of eight manipulation tasks with the SO-101 robotic arm in ManiSkill3, <em><strong>Squint surpasses prior visual reinforcement learning methods in wall-clock training time</strong></em> as well as State-to-Visual DAgger. 
+          <br><br>
+          <img src="./static/images/squint_results.png" style="width: 70%; display: block; margin: 0 auto;">
+          <br>
+          <strong> (Left).</strong> Comparison with visual RL baselines. <strong> (Right).</strong>  Comparison 
+          with State-to-Visual DAgger, where we include the time it takes to train an SAC state expert 
+          into the comparison. Mean Success Rate and 95% CI over 5 seeds on all SO-101 tasks. 
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- Showcase Video -->
+<section class="section hero is-light is-small">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column">
+        <h2 class="title is-3">Showcase</h2>
+          <div class="environment-views">
+            <video src="./static/videos/showcase.mp4" style="border-radius: 0em;" controls autoplay muted loop playsinline></video>
+          </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="section" id="Citation">
+  <div class="container is-max-desktop content">
+    <h2 class="title has-text-centered">Citation</h2>
+    <pre><code>@misc{almuzairee2026squint,
+      ???
+}</code></pre>
+  </div>
+</section>
+
+
+
+<footer class="footer">
+  <div class="container is-centered has-text-centered">
+    <div class="back-to-top-container">
+      <button id="back-to-top" class="back-to-top-btn">Back to Top</button>
+    </div>    
+  </div>
+  <br>
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8 has-text-centered">
+        <div class="content">
+          <p>
+            Website template based off <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a> and <a href="https://aalmuzairee.github.io/mad">MAD</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

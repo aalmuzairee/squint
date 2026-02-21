@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <!-- Base on ground -->
+  <rect x="4" y="54" width="24" height="8" rx="3" fill="#C0392B" stroke="#922B21" stroke-width="1.5"/>
+  <ellipse cx="16" cy="54" rx="12" ry="1.5" fill="#922B21" opacity="0.3"/>
+
+  <!-- Segment 1: base up -->
+  <line x1="16" y1="54" x2="20" y2="18" stroke="#E74C3C" stroke-width="8" stroke-linecap="round"/>
+
+  <!-- Shoulder joint -->
+  <circle cx="16" cy="54" r="5" fill="#F1948A" stroke="#C0392B" stroke-width="1.5"/>
+  <circle cx="16" cy="54" r="2" fill="#C0392B"/>
+
+  <!-- Elbow joint (top) -->
+  <circle cx="20" cy="18" r="5.5" fill="#F1948A" stroke="#C0392B" stroke-width="1.5"/>
+  <circle cx="20" cy="18" r="2.2" fill="#C0392B"/>
+
+  <!-- Segment 2: across right -->
+  <line x1="20" y1="18" x2="48" y2="22" stroke="#E74C3C" stroke-width="8" stroke-linecap="round"/>
+
+  <!-- Mid joint -->
+  <circle cx="48" cy="22" r="5" fill="#F1948A" stroke="#C0392B" stroke-width="1.5"/>
+  <circle cx="48" cy="22" r="2" fill="#C0392B"/>
+
+  <!-- Segment 3: down to wrist -->
+  <line x1="48" y1="22" x2="50" y2="34" stroke="#E74C3C" stroke-width="7" stroke-linecap="round"/>
+
+  <!-- Wrist joint -->
+  <circle cx="50" cy="34" r="4" fill="#F1948A" stroke="#C0392B" stroke-width="1.5"/>
+  <circle cx="50" cy="34" r="1.6" fill="#C0392B"/>
+
+  <!-- Gripper: horizontal connecting bar -->
+  <line x1="44" y1="38" x2="56" y2="38" stroke="#C0392B" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- Gripper: left finger pointing down-out -->
+  <line x1="44" y1="38" x2="40" y2="48" stroke="#E74C3C" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- Gripper: right finger pointing down-out -->
+  <line x1="56" y1="38" x2="60" y2="48" stroke="#E74C3C" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- Sparkles -->
+  <text x="6" y="16" font-size="7" fill="#F5B7B1">✦</text>
+  <text x="36" y="14" font-size="5" fill="#F5B7B1" opacity="0.7">✦</text>
+</svg>
