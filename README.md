@@ -1,15 +1,15 @@
 # Squint
 
 <p align="center">
-<img width="24%" src="https://github.com/aalmuzairee/squint/blob/gh-pages/static/extras/gifs/reach_cube.gif">
-<img width="24%" src="https://github.com/aalmuzairee/squint/blob/gh-pages/static/extras/gifs/reach_can.gif">
-<img width="24%" src="https://github.com/aalmuzairee/squint/blob/gh-pages/static/extras/gifs/lift_cube.gif">
-<img width="24%" src="https://github.com/aalmuzairee/squint/blob/gh-pages/static/extras/gifs/lift_can.gif">
+<img width="24%" src="https://aalmuzairee.github.io/papers-media/squint/extras/gifs/reach_cube.gif">
+<img width="24%" src="https://aalmuzairee.github.io/papers-media/squint/extras/gifs/reach_can.gif">
+<img width="24%" src="https://aalmuzairee.github.io/papers-media/squint/extras/gifs/lift_cube.gif">
+<img width="24%" src="https://aalmuzairee.github.io/papers-media/squint/extras/gifs/lift_can.gif">
 <br>
-<img width="24%" src="https://github.com/aalmuzairee/squint/blob/gh-pages/static/extras/gifs/place_cube.gif">
-<img width="24%" src="https://github.com/aalmuzairee/squint/blob/gh-pages/static/extras/gifs/place_can.gif">
-<img width="24%" src="https://github.com/aalmuzairee/squint/blob/gh-pages/static/extras/gifs/stack_cube.gif">
-<img width="24%" src="https://github.com/aalmuzairee/squint/blob/gh-pages/static/extras/gifs/stack_can.gif">
+<img width="24%" src="https://aalmuzairee.github.io/papers-media/squint/extras/gifs/place_cube.gif">
+<img width="24%" src="https://aalmuzairee.github.io/papers-media/squint/extras/gifs/place_can.gif">
+<img width="24%" src="https://aalmuzairee.github.io/papers-media/squint/extras/gifs/stack_cube.gif">
+<img width="24%" src="https://aalmuzairee.github.io/papers-media/squint/extras/gifs/stack_can.gif">
 </p> 
 
 **Fast Visual Reinforcement Learning for Sim-to-Real Robotics**
@@ -107,7 +107,7 @@ parameters in each environment file in `envs/`. Feel free to tune these paramete
 For expected results, we show the plots of training with Squint agents below:
 
 </br>
-<img width="100%" src="https://github.com/aalmuzairee/squint/blob/gh-pages/static/extras/imgs/per_task_results.png">
+<img width="100%" src="https://aalmuzairee.github.io/papers-media/squint/extras/imgs/per_task_results.png">
 </br>
 
 
@@ -142,7 +142,7 @@ Visual reinforcement learning agents are sensitive to slight visual changes. The
 We use a table with a black background. In ManiSkill3 simulation, we segment the objects of interest and replace the background with the image 
 provided in `envs/black_overlay.png`. Below, we show a visual of the Simulation Env, the Overlay Image (`black_overlay.png`), the Simulation Env with the Overlay in the background, and the Real World Input Image:
 </br></br>
-<img width="100%" src="https://github.com/aalmuzairee/squint/blob/gh-pages/static/extras/imgs/overlay_example.png">
+<img width="100%" src="https://aalmuzairee.github.io/papers-media/squint/extras/imgs/overlay_example.png">
 </br>
 
 If your table has a different background or color, take a photo, save it, and then edit the Randomization Config in [`envs/base_random_env.py`](envs/base_random_env.py#L59) to point to your image. Once you have your image in the background, align your real camera view with the simulation:
@@ -151,7 +151,7 @@ If your table has a different background or color, take a photo, save it, and th
 python deploy_utils/tune_camera.py
 ```
 </br>
-<img width="100%" src="https://github.com/aalmuzairee/squint/blob/gh-pages/static/extras/imgs/tune_camera_with_box_example.png">
+<img width="100%" src="https://aalmuzairee.github.io/papers-media/squint/extras/imgs/tune_camera_with_box_example.png">
 </br>
 
 Adjust the trackbars such that the **gripper and base positions** (outlined in the blue square) in both the simulation and the real world are as close as possible. Once they appear to match, press `p` to print 
