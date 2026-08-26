@@ -25,7 +25,7 @@ class DownsampleObsWrapper(gym.ObservationWrapper):
 
     def observation(self, obs):
         rgb = obs['rgb']  # (B, H, W, C) or (H, W, C)
-        if rgb.shape[-2] == self.target_size:
+        if rgb.shape[-3] == self.target_size and rgb.shape[-2] == self.target_size:
             return obs  # Already at target size
 
         # Handle batched and unbatched cases
