@@ -38,7 +38,7 @@ import cv2
 import matplotlib.pyplot as plt
 from tqdm import tqdm
 
-from mani_skill.envs.sim2real_env import Sim2RealEnv
+from deploy_utils.sim2real_compat import Sim2RealEnv  # ManiSkill's, minus the reset() recursion (ManiSkill#1498)
 from mani_skill.utils.wrappers.flatten import FlattenRGBDObservationWrapper
 from mani_skill.sensors.camera import CameraConfig
 from mani_skill.utils import common
