@@ -429,8 +429,6 @@ def main(args: Args):
     print("\nLoading agent...")
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     
-    # Load the checkpoint on the device we run on: checkpoints are saved from GPU memory, so without this
-    # torch.load(map_location=None) refuses them on a CPU-only machine (e.g. macOS).
     agent = DeployAgent(sim_env, sample_obs=real_obs, device=device)
 
     if args.checkpoint:
