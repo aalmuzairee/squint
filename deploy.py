@@ -429,7 +429,7 @@ def main(args: Args):
     print("\nLoading agent...")
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     
-    agent = DeployAgent(sim_env, sample_obs=real_obs)
+    agent = DeployAgent(sim_env, sample_obs=real_obs, device=device)
 
     if args.checkpoint:
         seed_to_use = args.seed
