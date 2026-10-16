@@ -1,6 +1,10 @@
 """
 Adapted from https://github.com/haosulab/ManiSkill/blob/main/mani_skill/agents/robots/lerobot/manipulator.py to support SO101.
 Code based on https://github.com/huggingface/lerobot for supporting real robot control via the unified LeRobot interface.
+
+Robot names: 
+    lerobot <= 0.4.2 names for SO100: "so100_follower" and SO101: "so101_follower" 
+    lerobot == 0.4.3 names "so_follower" for both, but it is treated here as an SO-101.
 """
 
 import time
@@ -41,9 +45,6 @@ class LeRobotRealAgent(BaseRealAgent):
 
         if self.real_robot.name == "so100_follower":
             self.real_robot.bus.motors["gripper"].norm_mode = MotorNormMode.DEGREES
-        # lerobot 0.4.3 merged SO-100 and SO-101 into SOFollower, named "so_follower" for both (0.4.2 and
-        # earlier: "so101_follower"). Without "so_follower" here the gripper stays in RANGE_0_100 and the
-        # servo <-> sim gripper map below is silently skipped. Under 0.4.3 this assumes an SO-101.
         elif self.real_robot.name in ("so101_follower", "so_follower"):
             self.real_robot.bus.motors["gripper"].norm_mode = MotorNormMode.DEGREES
             # Gripper mapping from measured values:
