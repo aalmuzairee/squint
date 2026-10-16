@@ -37,6 +37,10 @@ If you use this code in your research, kindly cite:
 
 -----
 
+## 📰 Updates
+
+- **2026-10-16**: Tagged [`v1.0-paper`](https://github.com/aalmuzairee/squint/tree/v1.0-paper) to reproduce the paper's results.
+
 ## 📋 Requirements
 
 - **GPU**: NVIDIA RTX 3080 or better (At least 10GB GPU RAM)

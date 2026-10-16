@@ -12,14 +12,15 @@ dependencies:
     - torchrl==0.7.2
 
     # Environment
-    - mani_skill_nightly
-    - gymnasium
+    - mani_skill_nightly==2026.1.31.920
+    - sapien==3.0.2
+    - gymnasium==1.2.3
 
     # Utilities
-    - numpy
-    - tyro
+    - numpy==2.2.6
+    - tyro==1.0.6
     - tqdm
-    - wandb
+    - wandb==0.24.2
     - opencv-python==4.12.0.88
   
     # Deploy 
