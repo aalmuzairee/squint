@@ -441,7 +441,7 @@ class Place(DefaultCameraEnv):
         return obs
 
     def evaluate(self):
-        # Check if item (x,y) position is inside the bin's (x,y) range, in the bin's own frame since the bin spawns with a random yaw. 
+        # Check if item (x,y) is inside the bin's (x,y) range, in the bin's own frame (the bin spawns with a random yaw)
         offset = self.item.pose.p - self.bin.pose.p
         w, x, y, z = self.bin.pose.q.unbind(-1)
         yaw = torch.atan2(2 * (w * z + x * y), 1 - 2 * (y * y + z * z))
