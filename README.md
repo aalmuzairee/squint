@@ -39,6 +39,7 @@ If you use this code in your research, kindly cite:
 
 ## 📰 Updates
 
+- **2026-10-17**: Moved to `mani-skill==3.0.1` and merged deployment and Place task fixes ([#9](https://github.com/aalmuzairee/squint/pull/9), [#10](https://github.com/aalmuzairee/squint/pull/10), [#11](https://github.com/aalmuzairee/squint/pull/11)).
 - **2026-10-16**: Tagged [`v1.0-paper`](https://github.com/aalmuzairee/squint/tree/v1.0-paper) to reproduce the paper's results.
 
 ## 📋 Requirements

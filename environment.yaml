@@ -12,8 +12,7 @@ dependencies:
     - torchrl==0.7.2
 
     # Environment
-    - mani_skill_nightly==2026.1.31.920
-    - sapien==3.0.2
+    - mani_skill==3.0.1
     - gymnasium==1.2.3
 
     # Utilities
