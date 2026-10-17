@@ -441,20 +441,13 @@ class Place(DefaultCameraEnv):
         return obs
 
     def evaluate(self):
-        item_pos = self.item.pose.p
-        bin_pos = self.bin.pose.p.clone()
-        bin_pos[:, 2] = self.bin_thickness + self.item_half_sizes
-
-        offset = item_pos - bin_pos
-        # The bin spawns with a random yaw (_initialize_episode), so compare against its half sizes in the bin's own
-        # frame, not in world x/y. Rotate the world offset by -yaw; the bin is only ever rotated about z.
-        q = self.bin.pose.q  # wxyz
-        yaw = torch.atan2(2 * (q[:, 0] * q[:, 3] + q[:, 1] * q[:, 2]), 1 - 2 * (q[:, 2] ** 2 + q[:, 3] ** 2))
+        # Check if item (x,y) position is inside the bin's (x,y) range, in the bin's own frame since the bin spawns with a random yaw. 
+        offset = self.item.pose.p - self.bin.pose.p
+        w, x, y, z = self.bin.pose.q.unbind(-1)
+        yaw = torch.atan2(2 * (w * z + x * y), 1 - 2 * (y * y + z * z))
         cos_yaw, sin_yaw = torch.cos(yaw), torch.sin(yaw)
-        local_x = cos_yaw * offset[:, 0] + sin_yaw * offset[:, 1]
-        local_y = -sin_yaw * offset[:, 0] + cos_yaw * offset[:, 1]
-        inside_x = torch.abs(local_x) < self.bin_half_sizes_x
-        inside_y = torch.abs(local_y) < self.bin_half_sizes_y
+        inside_x = torch.abs(cos_yaw * offset[:, 0] + sin_yaw * offset[:, 1]) < self.bin_half_sizes_x
+        inside_y = torch.abs(-sin_yaw * offset[:, 0] + cos_yaw * offset[:, 1]) < self.bin_half_sizes_y
         is_item_above_bin = inside_x & inside_y
 
         item_lifted = self.item.pose.p[..., -1] >= (self.item_half_sizes + 1e-3)
