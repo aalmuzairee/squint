@@ -587,6 +587,9 @@ class WristCameraEnv(BaseRandomEnv):
         if self.gpu_sim_enabled:
             self.scene._gpu_apply_all()
             self.scene._gpu_fetch_all()  # Complete the cycle
+        # The parent's observation was rendered before the camera moved; observe again from the synced pose
+        obs = self.get_obs(info)
+        self._last_obs = obs
         return obs, info
 
     def _after_control_step(self):
